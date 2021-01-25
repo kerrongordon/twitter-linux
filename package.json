@@ -1,0 +1,48 @@
+{
+  "name": "twitterlinux",
+  "version": "1.0.0",
+  "description": "Simple. Secure. Reliable messaging. With WhatsApp, you'll get fast, simple, secure messaging and calling for free*, available on phones all over the world.",
+  "main": "app/main.js",
+  "maintainers": [
+    "Kerron Gordon"
+  ],
+  "author": {
+    "name": "Kerron Gordon",
+    "email": "kgpsounds.com@gmail.com",
+    "url": "https://kerron-gordon.web.app"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/kerrongordon/twitter-linux",
+  "build": {
+    "appId": "com.github.kerrongordon.twitterlinux",
+    "productName": "Twitter",
+    "linux": {
+      "desktop": {
+        "StartupWMClass": "twitterlinux"
+      },
+      "maintainer": "Kerron Gordon",
+      "category": "Network",
+      "icon": "app/icon/",
+      "target": [
+        "deb",
+        "AppImage",
+        "rpm"
+      ]
+    }
+  },
+  "scripts": {
+    "build": "tsc",
+    "lint": "tslint -c tslint.json -p tsconfig.json",
+    "start": "npm run build && electron ./app/main.js",
+    "build:linux": "npm run build && npm run lint && electron-builder --linux"
+  },
+  "devDependencies": {
+    "electron": "11.2.0",
+    "electron-builder": "22.9.1",
+    "tslint": "6.1.3",
+    "typescript": "4.1.3"
+  },
+  "dependencies": {
+    "electron-context-menu": "^2.3.0"
+  }
+}
